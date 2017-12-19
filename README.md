@@ -1,2 +1,2 @@
 # timint
-Intelligent timeline for viewing data
+## Intelligent timeline for viewing data
