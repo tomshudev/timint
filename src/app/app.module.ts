@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { MenuComponent } from './menu/menu.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    MenuComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
