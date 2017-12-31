@@ -11,9 +11,14 @@ declare var initTimeline:any;
 })
 export class TimelineComponent implements OnInit {
 
+  isLoading = false;
+
   constructor() { }
 
   ngOnInit() {
-    initTimeline();
+    this.isLoading = true;
+    initTimeline(() => {
+      this.isLoading = false;
+    });
   }
 }

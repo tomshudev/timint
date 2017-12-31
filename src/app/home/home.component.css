@@ -1,20 +1,12 @@
-.background {
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background-position: top;
-    background-size: cover;
-    background-image: url(/assets/images/hero.jpg);
-}
-
 .text-box {
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .primary-heading {
+    color: #F75940;
     position: relative;
     margin-bottom: 40px;
 
@@ -31,7 +23,7 @@
 
 .primary-heading-sub {
     display: block;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 20px;
 }
 
@@ -61,16 +53,6 @@
 .btn:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.copyright {
-    color: #777;
-    font-size: 12px;
-
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    padding: 10px;
 }
 
 @keyframes moveInTop {

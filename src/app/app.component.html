@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<header [ngClass]="{'background':isHomeScreen, 'none-background':!isHomeScreen}">
+    <ul class="nav">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
+        <li routerLinkActive="active"><a routerLink="/timeline">Timeline</a></li>
+    </ul>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<div class="copyright">
+    <span>Copyright © 2018 - Liran Cohen, Tom Shushan, Dekel Adler</span>
+</div>
