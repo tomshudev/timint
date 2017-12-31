@@ -1,4 +1,6 @@
-.header {
+.background {
+    top: 0;
+    left: 0;
     height: 100vh;
     background-position: top;
     background-size: cover;

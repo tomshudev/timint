@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.show {
+    opacity: 1 !important;
+    height: 100vh !important;
+    transform: translateY(0) !important;
+}
+
+.hide{
+    opacity: 0;
+    height: 0vh;
+    transform: translateY(-100vh);
+    transition: .5s ease-in-out all;
 }

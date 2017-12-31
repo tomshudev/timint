@@ -29,11 +29,4 @@ function initTimeline() {
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
-
-  var ordering = document.getElementById('ordering');
-  ordering.onchange = function () {
-    timeline.setOptions({
-      order: ordering.checked ? customOrder: null
-    });
-  };
 }
