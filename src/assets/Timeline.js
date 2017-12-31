@@ -1,4 +1,4 @@
-function initTimeline() {
+function initTimeline(callback) {
     // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
 
@@ -27,13 +27,16 @@ function initTimeline() {
     margin: {item: 0}
   };
 
+  var firstshow = true;
+  
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
 
-  var ordering = document.getElementById('ordering');
-  ordering.onchange = function () {
-    timeline.setOptions({
-      order: ordering.checked ? customOrder: null
-    });
-  };
+  timeline.on("changed", function (properties) {
+    if (firstshow) {
+      timeline.focus(timeline.getVisibleItems());
+      firstshow = false;
+      callback();
+    }
+  });
 }

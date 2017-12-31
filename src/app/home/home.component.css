@@ -1,0 +1,80 @@
+.text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.primary-heading {
+    color: #F75940;
+    position: relative;
+    margin-bottom: 40px;
+
+    text-transform: uppercase;
+
+    animation: moveInTop 1s ease-out;
+}
+
+.primary-heading-main {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 40px;
+}
+
+.primary-heading-sub {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 20px;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    display: inline-block;
+    padding: 15px 40px;
+    position: relative;
+    transition: all .2s;
+}
+
+.btn-gray {
+    background-color: #333;
+    color: #fff;
+
+    animation: moveInBottom 1s ease-out;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity:1;
+        transform: translateY(0);
+    }
+}
