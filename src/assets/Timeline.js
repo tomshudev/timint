@@ -1,4 +1,4 @@
-function initTimeline() {
+function initTimeline(callback) {
     // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
 
@@ -52,9 +52,17 @@ function initTimeline() {
     groupOrder: 'content'  // groupOrder can be a property name or a sorting function
   };
 
+  var firstshow = true;
+  
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
   timeline.setGroups(groups);
 
-  
+  timeline.on("changed", function (properties) {
+    if (firstshow) {
+      timeline.focus(timeline.getVisibleItems());
+      firstshow = false;
+      callback();
+    }
+  });
 }
