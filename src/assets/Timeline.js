@@ -21,7 +21,8 @@ function initTimeline(callback) {
       content: bruto.name,
       start:   bruto.start,
       end:     bruto.end,
-      group:   index
+      group:   index,
+      description: bruto.description
     });
   }
 
@@ -34,7 +35,8 @@ function initTimeline(callback) {
         content: neto.name,
         start:   neto.start,
         end:     neto.end,
-        group:   index
+        group:   index,
+        description: bruto.description
       });
     });
   }
@@ -49,6 +51,7 @@ function initTimeline(callback) {
     order: customOrder,
     editable: true,
     margin: {item: 0},
+    selectable: false,
     groupOrder: 'content'  // groupOrder can be a property name or a sorting function
   };
 
@@ -65,4 +68,28 @@ function initTimeline(callback) {
       callback();
     }
   });
+
+  function openPopup(properties) {
+    // If the clicked area is an item
+    if (properties.item) {
+      var item = items.get(properties.item);
+
+      // Setting the popup heading
+      document.getElementsByClassName('popup-heading')[0].textContent = item.content;
+
+      // Setting the popup content
+      var content = document.getElementsByClassName('popup-content')[0];
+      content.innerHTML="<h2>Description: </h2> " + item.description;
+
+      // Setting the position of the popup in the needed point and displaying it
+      var element = document.getElementById('popup-container');
+      var parent = document.getElementById('popup');
+      parent.style.top = properties.pageY + "px";
+      parent.style.left = (properties.pageX - (element.clientWidth / 2)) + "px";
+      parent.style.opacity = "1";
+      parent.style.visibility = "visible";
+    }
+  }
+
+  timeline.on("doubleClick", openPopup);
 }
