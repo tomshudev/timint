@@ -1,5 +1,5 @@
 .overlay {
-    position: absolute;
+    position: fixed;
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
