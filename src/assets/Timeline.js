@@ -1,4 +1,4 @@
-function initTimeline() {
+function initTimeline(callback) {
     // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
   var toggleView = document.getElementById('toggleView');
@@ -100,4 +100,14 @@ function initTimeline() {
     timeline.redraw()
     tog = !tog
   }
+
+  var firstshow = true;
+
+  timeline.on("changed", function (properties) {
+    if (firstshow) {
+      timeline.focus(timeline.getVisibleItems());
+      firstshow = false;
+      callback();
+    }
+  });
 }
