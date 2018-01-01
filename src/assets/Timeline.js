@@ -66,6 +66,7 @@ function initTimeline() {
     selectable: false,
     zoomMax: maxDate.diff(minDate,'ms'),
     zoomMin: lowestDuration,
+    margin: {item: 0},
     align: 'left',
   };
   // set starting values
