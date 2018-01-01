@@ -20,6 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.css",
+        "./assets/navbar.css",
         "../node_modules/vis/dist/vis.css",
         "./assets/popup.css"
       ],
