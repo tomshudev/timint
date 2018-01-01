@@ -28,7 +28,8 @@ function initTimeline(callback) {
       start:   bruto.start,
       end:     bruto.end,
       group:   index,
-      align: 'left',
+      description: bruto.description,
+      align: 'left'
     })
 
     if (minDate.diff(bruto.start) > 0)
@@ -40,18 +41,21 @@ function initTimeline(callback) {
       if (lowestDuration > vis.moment(neto.end).diff(neto.start, 'ms'))
         lowestDuration = vis.moment(neto.end).diff(neto.start, 'ms')
       items.add({
-        content: neto.name + ' <span style="color:#97B0F8;">(' + bruto.name + ')</span>',
+        content: neto.name + ' (' + bruto.name + ')',
         start:   neto.start,
         end:     neto.end,
         style: 'background-color: '+colors[index]+';',
         align: 'left',
+        description: neto.description,
       })
       combinedItems.add({
         content: neto.name,
         start:   neto.start,
         end:     neto.end,
         group:   index,
+        description: bruto.description,
         align: 'left',
+        description: neto.description,
       })
     })
   }
@@ -67,7 +71,9 @@ function initTimeline(callback) {
     zoomMax: maxDate.diff(minDate,'ms'),
     zoomMin: lowestDuration,
     margin: {item: 0},
-    align: 'left',
+    selectable: false,
+    groupOrder: 'content',  // groupOrder can be a property name or a sorting function
+    align: 'left'
   };
   // set starting values
   options.min = vis.moment(minDate).subtract(options.zoomMax / 2, 'ms')
@@ -75,6 +81,7 @@ function initTimeline(callback) {
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
   timeline.on('rangechange',function(properties){
+    closePopup()
     var start = vis.moment(properties.start)
     var end = vis.moment(properties.end)
     var diff = end.diff(start, 'ms')
@@ -101,13 +108,37 @@ function initTimeline(callback) {
     tog = !tog
   }
 
-  var firstshow = true;
+  function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.opacity = "0";
+    popup.style.visibility = "hidden";
+  }
 
-  timeline.on("changed", function (properties) {
-    if (firstshow) {
-      timeline.focus(timeline.getVisibleItems());
-      firstshow = false;
-      callback();
+  function openPopup(properties) {
+    // If the clicked area is an item
+    if (properties.item) {
+      var item;
+      if (tog)
+        item = items.get(properties.item);
+      else
+        item = combinedItems.get(properties.item);
+
+      // Setting the popup heading
+      document.getElementsByClassName('popup-heading')[0].textContent = item.content;
+
+      // Setting the popup content
+      var content = document.getElementsByClassName('popup-content')[0];
+      content.innerHTML="<h2>Description: </h2> " + item.description;
+
+      // Setting the position of the popup in the needed point and displaying it
+      var element = document.getElementById('popup-container');
+      var parent = document.getElementById('popup');
+      parent.style.top = properties.pageY + "px";
+      parent.style.left = (properties.pageX - (element.clientWidth / 2)) + "px";
+      parent.style.opacity = "1";
+      parent.style.visibility = "visible";
     }
-  });
+  }
+
+  timeline.on("doubleClick", openPopup);
 }

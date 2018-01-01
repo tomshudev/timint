@@ -25,4 +25,10 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  closePopup() : void {
+    var popup = document.getElementById("popup");
+    popup.style.opacity = "0";
+    popup.style.visibility = "hidden";
+  }
 }
