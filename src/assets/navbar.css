@@ -1,0 +1,90 @@
+/* ----------------------------------------------------- */
+/* NAVBAR */
+/* ----------------------------------------------------- */
+
+nav {
+    display: block;
+    height: 50px;
+    margin: 0px;
+    padding: 0 10%;
+    color: #333;
+    background-color: transparent;
+
+    transition: all .7s;
+}
+
+.nav {
+    margin: 0;
+    float: left;
+
+    list-style: none;
+
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.nav li {
+    float: left;
+    font-size: 20px;
+    padding: 9px 10px;
+}
+   
+nav li a:link,
+nav a:visited {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 3px 0;
+    border-bottom: 2px transparent solid;
+
+    transition: .5s all;
+}
+   
+nav li a:hover {
+    border-bottom: 2px #333 solid;
+}
+
+/* ----------------------------------------------------- */
+/* LOGO */
+/* ----------------------------------------------------- */
+
+.logo {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    margin: 10px auto;
+
+    float: left;
+}
+
+nav a.logo:link,
+nav a.logo:visited {
+    text-decoration: none;
+}
+
+/* ----------------------------------------------------- */
+/* NAVBAR NOT IN HOME SCREEN */
+/* ----------------------------------------------------- */
+
+.nav-background {
+    color: #fff;
+    background-color: #333;
+}
+
+nav.nav-background li a:link,
+nav.nav-background li a:visited {
+    color: #fff;
+}
+
+nav.nav-background li a:hover {
+    border-bottom: 2px #fff solid;
+}
+
+nav.nav-background a.logo:link,
+nav.nav-background a.logo:visited {
+    color: #fff;
+}
+

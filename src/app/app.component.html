@@ -1,8 +1,13 @@
 <header [ngClass]="{'background':isHomeScreen, 'none-background':!isHomeScreen}">
-    <ul class="nav">
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
-        <li routerLinkActive="active"><a routerLink="/timeline">Timeline</a></li>
-    </ul>
+    <nav [ngClass]="{'nav-background':!isHomeScreen}">
+        <div class="row">
+            <a routerLink="/" class="logo">timint</a>
+            <ul class="nav">
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
+                <li routerLinkActive="active"><a routerLink="/timeline">Timeline</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
 <main>
