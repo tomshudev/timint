@@ -13,16 +13,18 @@ nav {
     transition: all .7s;
 }
 
+.nav-navbar {
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
 .nav {
     margin: 0;
     float: left;
 
     list-style: none;
-
-    font-family: 'Lato';
-    font-weight: 400;
-    font-size: 24px;
-    letter-spacing: 2px;
 }
 
 .nav li {
@@ -44,6 +46,37 @@ nav a:visited {
    
 nav li a:hover {
     border-bottom: 2px #333 solid;
+}
+
+.nav-right {
+    float: right;
+}
+
+.nav-right li {
+    padding: 9.5px 10px;
+}
+
+.sign {
+    text-decoration: none;
+    padding: 9px 10px;
+}
+
+nav li.sign a:link,
+nav li.sign a:visited {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 1px 10px;
+    border-radius: 100px;
+    border: 1px solid #333;
+
+    transition: .5s all;
+}
+
+nav li.sign a:hover {
+    background-color: #333;
+    color: #fff;
 }
 
 /* ----------------------------------------------------- */
@@ -88,3 +121,20 @@ nav.nav-background a.logo:visited {
     color: #fff;
 }
 
+nav.nav-background li.sign a:link,
+nav.nav-background li.sign a:visited {
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 1px 10px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+
+    transition: .5s all;
+}
+
+nav.nav-background li.sign a:hover {
+    background-color: #fff;
+    color: #333;
+}
