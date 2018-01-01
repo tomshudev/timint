@@ -22,11 +22,14 @@
         "styles.css",
         "./assets/navbar.css",
         "../node_modules/vis/dist/vis.css",
+        "../node_modules/enjoyhint/enjoyhint.css",
         "./assets/popup.css"
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
-        "./assets/Timeline.js"
+        "../node_modules/enjoyhint/index.js",
+        "./assets/Timeline.js",
+        "./assets/tutorial.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
