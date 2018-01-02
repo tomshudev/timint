@@ -17,8 +17,6 @@ export class ControlComponent implements OnInit {
   ngOnInit() {
     this.timeline = getTimeline();
     this.options = getOptions();
-    console.log(this.timeline);
-    console.log(this.options);
   }
 
   fitAllItems() {

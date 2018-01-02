@@ -20,14 +20,19 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "./assets/navbar.css",
         "../node_modules/vis/dist/vis.css",
-        "./assets/popup.css",
-        "./assets/timeline.css"
+        "./assets/css/navbar.css",
+        "./assets/css/jquery.enjoyhint.css",
+        "./assets/css/popup.css",
+        "./assets/css/timeline.css"
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
-        "./assets/Timeline.js"
+        "./assets/js/enjoyhint.min.js",
+        "./assets/js/jquery.enjoyhint.js",
+        "./assets/js/kinetic.min.js",
+        "./assets/js/Timeline.js",
+        "./assets/js/tutorial.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
