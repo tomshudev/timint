@@ -23,7 +23,8 @@
         "../node_modules/vis/dist/vis.css",
         "./assets/css/navbar.css",
         "./assets/css/jquery.enjoyhint.css",
-        "./assets/css/popup.css"
+        "./assets/css/popup.css",
+        "./assets/css/timeline.css"
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
