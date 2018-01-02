@@ -1,4 +1,14 @@
 var timeline;
+var options;
+
+function getTimeline(){
+  return timeline;
+}
+
+function getOptions(){
+  return options;
+}
+
 function move (percentage) {
   var range = timeline.getWindow()
   var interval = range.end - range.start
@@ -104,7 +114,7 @@ function initTimeline(callback) {
   }
 
   // Configuration for the Timeline
-  var options = {
+  options = {
     order: customOrder,
     selectable: false,
     zoomMax: maxDate.diff(minDate,'ms'),
@@ -112,7 +122,8 @@ function initTimeline(callback) {
     margin: {item: 2},
     selectable: false,
     groupOrder: 'content',  // groupOrder can be a property name or a sorting function
-    align: 'left'
+    align: 'left',
+    zoomable: true
   };
   // set starting values
   options.min = vis.moment(minDate).subtract(options.zoomMax / 2, 'ms')
