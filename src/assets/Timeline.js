@@ -1,3 +1,19 @@
+var timeline;
+function move (percentage) {
+  var range = timeline.getWindow()
+  var interval = range.end - range.start
+
+  timeline.setWindow(
+    range.start.valueOf() - interval * percentage,
+    range.end.valueOf()   - interval * percentage,
+    {animation: false}
+  )
+}
+function closePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.opacity = "0";
+  popup.style.visibility = "hidden";
+}
 function initTimeline(callback) {
     // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
@@ -102,7 +118,7 @@ function initTimeline(callback) {
   options.min = vis.moment(minDate).subtract(options.zoomMax / 2, 'ms')
   options.max = vis.moment(maxDate).add(options.zoomMax / 2, 'ms')
   // Create a Timeline
-  var timeline = new vis.Timeline(container, items, options);
+  timeline = new vis.Timeline(container, items, options);
   timeline.on('rangechange',function(properties){
     closePopup()
     var start = vis.moment(properties.start)
@@ -129,12 +145,6 @@ function initTimeline(callback) {
     }
     timeline.redraw()
     tog = !tog
-  }
-
-  function closePopup() {
-    var popup = document.getElementById("popup");
-    popup.style.opacity = "0";
-    popup.style.visibility = "hidden";
   }
 
   function openPopup(properties) {
