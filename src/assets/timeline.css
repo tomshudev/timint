@@ -1,0 +1,8 @@
+.vis-timeline {
+    border: none;
+}
+
+.vis-item.vis-range {
+    border: none;
+    border-radius: 5px;
+}
