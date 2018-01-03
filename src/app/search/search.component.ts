@@ -3,6 +3,7 @@ import {SelectModule} from 'ng-select';
 import {IOption} from 'ng-select';
 declare var timeline:any;
 declare var vis:any;
+declare var timelineLoadPromise:Promise<any>;
 
 function log(a){console.log(a); return a;}
 
@@ -22,10 +23,12 @@ export class SearchComponent implements OnInit {
   }
   myOptions: Array<NetoOption> = [];
   ngOnInit() {
-    let items = timeline.itemSet.items
-    Object.keys(items).forEach(id => {
-      this.myOptions.push({value: id, label: items[id].content, start: timeline.itemsData._data[id].start, end: timeline.itemsData._data[id].end});
-    });
+    timelineLoadPromise.then(()=> {
+      let items = timeline.itemSet.items
+      Object.keys(items).forEach(id => {
+        this.myOptions.push({value: id, label: items[id].content, start: timeline.itemsData._data[id].start, end: timeline.itemsData._data[id].end});
+      });
+    })
   }
   onSelected(option: IOption) {
     var netoOption = option as NetoOption
