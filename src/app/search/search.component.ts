@@ -3,6 +3,7 @@ import {SelectModule} from 'ng-select';
 import {IOption} from 'ng-select';
 declare var timeline:any;
 declare var vis:any;
+declare var $:any;
 
 function log(a){console.log(a); return a;}
 
@@ -32,7 +33,11 @@ export class SearchComponent implements OnInit {
     var start = vis.moment(netoOption.start)
     var end = vis.moment(netoOption.end)
     var range = end.diff(start,'ms')
-    timeline.setWindow(start.subtract(range/2,'ms'), end.add(range/2,'ms'))
+    timeline.setWindow(start.subtract(range/2,'ms'), end.add(range/2,'ms'));
+  }
+
+  onDeselected(option: IOption) {
+      timeline.fit();
   }
   
 }
