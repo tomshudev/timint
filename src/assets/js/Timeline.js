@@ -1,5 +1,8 @@
 var timeline;
 var options;
+var groups;
+var combinedItems;
+var items;
 
 function getTimeline(){
   return timeline;
@@ -7,6 +10,23 @@ function getTimeline(){
 
 function getOptions(){
   return options;
+}
+
+function toggleView(isNetoMode) {
+  if(isNetoMode) {
+    timeline.setData({
+      groups: groups,
+      items: combinedItems
+    });
+  } else {
+    timeline.setData({
+      groups: null,
+      items: items
+    });
+    timeline.setGroups(null);
+  }
+
+  timeline.redraw();
 }
 
 function move (percentage) {
@@ -55,9 +75,9 @@ function initTimeline(callback) {
   var colors = ['#0074D9','#001f3f','#FF851B','#85144b','#e5e5e5']
 
   // Create a DataSet (allows two way data-binding)
-  var items = new vis.DataSet()
-  var groups = new vis.DataSet()
-  var combinedItems = new vis.DataSet()
+  items = new vis.DataSet()
+  groups = new vis.DataSet()
+  combinedItems = new vis.DataSet()
 
   var minDate = vis.moment(new Date(8640000000000000))
   var maxDate = vis.moment(new Date(-8640000000000000))
@@ -139,24 +159,26 @@ function initTimeline(callback) {
     options.max = vis.moment(maxDate).add(diff / 2, 'ms')
     timeline.setOptions(options)
   })
-  var tog = 1
-  toggleView.onclick = function(){
-    if (tog){
-      timeline.setData({
-        groups: groups,
-        items: combinedItems
-      })
-    }
-    else {
-      timeline.setData({
-        groups: null,
-        items: items
-      })
-      timeline.setGroups(null)
-    }
-    timeline.redraw()
-    tog = !tog
-  }
+  // var tog = 1
+  // toggleView.onclick = function(){
+  //   if (tog){
+  //     timeline.setData({
+  //       groups: groups,
+  //       items: combinedItems
+  //     })
+  //   }
+  //   else {
+  //     timeline.setData({
+  //       groups: null,
+  //       items: items
+  //     })
+  //     timeline.setGroups(null)
+  //   }
+  //   timeline.redraw()
+  //   tog = !tog
+  // }
+
+  
 
   function openPopup(properties) {
     // If the clicked area is an item

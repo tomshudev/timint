@@ -1,8 +1,13 @@
-<h2>control</h2>
-
-<div class="btn" (click)="fitAllItems()">Fit all items</div>
-<div class="btn" (click)="zoomIn()">Zoom in</div>
-<div class="btn" (click)="zoomOut()">Zoom out</div>
-<div class="btn" (click)="moveRight()">Forward</div>
-<div class="btn" (click)="moveLeft()">Backward</div>
-<div class="btn" (click)="toggleScrollingMode()">Toggle scrolling mode</div>
+<div class="control-panel" id="control-panel">
+    <a id="fitAllItems" title="Fit all items to screen" class="btn btn-control" (click)="fitAllItems()"><i class="icon ion-code"></i></a>
+    <span id="zoomings">
+        <a title="Zoom in" class="btn btn-control" (click)="zoomIn()"><i class="icon ion-plus-round"></i></a>
+        <a title="Zoom out" class="btn btn-control" (click)="zoomOut()"><i class="icon ion-minus-round"></i></a>
+    </span>
+    <span id="movings">
+        <a title="Move left" class="btn btn-control" (click)="moveLeft()"><i class="icon ion-arrow-left-b"></i></a>
+        <a title="Move right" class="btn btn-control" (click)="moveRight()"><i class="icon ion-arrow-right-b"></i></a>
+    </span>
+    <a id="toggleZoomingLink" title="Turn off zooming using the mouse" class="btn btn-control toggling" (click)="toggleZoomingMode()"><i class="icon ion-unlocked" id="toggleZoomingIcon"></i></a>
+    <a id="toggleNetoBrutoLink" title="Toggle to Bruto mode" class="btn btn-control toggling" (click)="toggleNetoBruto()"><i class="icon ion-toggle" id="toggleNetoBrutoIcon"></i></a>
+</div>

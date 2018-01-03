@@ -1,0 +1,18 @@
+.control-panel {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 6px;
+    border-radius: 20px;
+    background-color: rgb(243, 243, 243);
+}
+
+.btn-control {
+    font-size: 26px;
+    margin-right: 9px;
+    color: #333;
+    cursor: pointer;
+}
+
+.btn-control:hover {
+    color: #2962ff;
+}

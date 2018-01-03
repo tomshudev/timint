@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ControlComponent } from './control/control.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ControlComponent } from './control/control.component';
     HomeComponent,
     MenuComponent,
     TimelineComponent,
-    ControlComponent
+    ControlComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,
