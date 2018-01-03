@@ -1,4 +1,9 @@
 <ng-select
-    [options]="myOptions" (focus) = "setSearching(true)" (blur) = "setSearching(false)" (selected) = "onSelected($event)"
-    >
+    [allowClear]="true"
+    placeholder="Search items inside the timeline"
+    [options]="myOptions" 
+    (focus) = "setSearching(true)" 
+    (blur) = "setSearching(false)" 
+    (selected) = "onSelected($event)"
+    (deselected)="onDeselected($event)">
 </ng-select>
