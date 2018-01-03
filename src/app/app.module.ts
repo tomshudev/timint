@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SearchComponent } from './search/search.component';
+import {SelectModule} from 'ng-select';
 import { ControlComponent } from './control/control.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 
@@ -20,13 +22,15 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     MenuComponent,
     TimelineComponent,
     ControlComponent,
-    TooltipComponent
+    TooltipComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SelectModule
   ],
   providers: [
     CookieService
