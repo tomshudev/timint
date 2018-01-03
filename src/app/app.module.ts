@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SearchComponent } from './search/search.component';
+import {SelectModule} from 'ng-select';
 import { ControlComponent } from './control/control.component';
 
 
@@ -18,13 +20,15 @@ import { ControlComponent } from './control/control.component';
     HomeComponent,
     MenuComponent,
     TimelineComponent,
+    SearchComponent,
     ControlComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SelectModule
   ],
   providers: [
     CookieService

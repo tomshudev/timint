@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeInAnimation } from '../_animations/index';
+
 declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
@@ -18,10 +19,12 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
     initTimeline(() => {
+      timeline.searching = false
     });
   }
-
   keysListener($event) {
+    if (timeline.searching)
+      return
     if ($event.code == "Escape")
       closePopup()
     if ($event.code == "ArrowLeft"){

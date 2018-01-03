@@ -185,4 +185,5 @@ function initTimeline(callback) {
   }
 
   timeline.on("doubleClick", openPopup);
+  callback()
 }
