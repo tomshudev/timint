@@ -12,6 +12,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SearchComponent } from './search/search.component';
 import {SelectModule} from 'ng-select';
 import { ControlComponent } from './control/control.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 
 @NgModule({
@@ -20,8 +21,9 @@ import { ControlComponent } from './control/control.component';
     HomeComponent,
     MenuComponent,
     TimelineComponent,
-    SearchComponent,
-    ControlComponent
+    ControlComponent,
+    TooltipComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

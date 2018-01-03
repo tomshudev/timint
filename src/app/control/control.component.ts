@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 declare var getTimeline: any;
 declare var getOptions: any;
+declare var $:any;
+declare var toggleBrutoNetoText:any;
+declare var toggleZoomingText:any;
+declare var toggleView:any;
+declare var initControlPanel:any;
 
 @Component({
   selector: 'app-control',
@@ -9,14 +14,32 @@ declare var getOptions: any;
 })
 export class ControlComponent implements OnInit {
 
+  brutoNetoEnum = {
+    NETO: 'Toggle to Bruto mode',
+    BRUTO: 'Toggle to Neto mode'
+  }
+
+  zoomingEnum = {
+    ON: 'Turn off zooming using the mouse',
+    OFF: 'Turn on zooming using the mouse'
+  }
+
   timeline = null;
   options = null;
+  brutoNetoMode = null;
+  zoomingMode = null;
 
   constructor() { }
 
   ngOnInit() {
     this.timeline = getTimeline();
     this.options = getOptions();
+    this.brutoNetoMode = this.brutoNetoEnum.NETO;
+    toggleBrutoNetoText(this.brutoNetoMode);
+    this.zoomingMode = this.zoomingEnum.ON;
+    toggleZoomingText(this.zoomingMode);
+
+    initControlPanel();
   }
 
   fitAllItems() {
@@ -41,7 +64,6 @@ export class ControlComponent implements OnInit {
     });
   }
 
-
   moveRight() {
     this.move(-0.5);
   }
@@ -50,12 +72,46 @@ export class ControlComponent implements OnInit {
     this.move(0.5);
   }
 
-  toggleScrollingMode() {
+  toggleZoomingMode() {
+    if (this.zoomingMode === this.zoomingEnum.ON) {
+      $('#toggleZoomingIcon').removeClass('ion-unlocked');
+      $('#toggleZoomingIcon').addClass('ion-locked');
+
+      this.zoomingMode = this.zoomingEnum.OFF;
+      toggleZoomingText(this.zoomingMode);
+    } else {
+      $('#toggleZoomingIcon').addClass('ion-unlocked');
+      $('#toggleZoomingIcon').removeClass('ion-locked');
+
+      this.zoomingMode = this.zoomingEnum.ON;
+      toggleZoomingText(this.zoomingMode);
+    }
+
     if (this.options.zoomable) {
       this.options.zoomable = false;
     } else {
       this.options.zoomable = true;
     }
     this.timeline.setOptions(this.options);
+  }
+
+  toggleNetoBruto() {
+      var isNetoMode = this.brutoNetoMode === this.brutoNetoEnum.NETO;
+
+      if (this.brutoNetoMode === this.brutoNetoEnum.NETO) {
+        $('#toggleNetoBrutoIcon').addClass('ion-toggle-filled');
+        $('#toggleNetoBrutoIcon').removeClass('ion-toggle');
+
+        this.brutoNetoMode = this.brutoNetoEnum.BRUTO;
+        toggleBrutoNetoText(this.brutoNetoMode);
+      } else {
+        $('#toggleNetoBrutoIcon').removeClass('ion-toggle-filled');
+        $('#toggleNetoBrutoIcon').addClass('ion-toggle');
+
+        this.brutoNetoMode = this.brutoNetoEnum.NETO;
+        toggleBrutoNetoText(this.brutoNetoMode);
+      }
+
+      toggleView(isNetoMode);
   }
 }

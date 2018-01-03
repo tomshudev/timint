@@ -32,7 +32,8 @@
         "./assets/js/jquery.enjoyhint.js",
         "./assets/js/kinetic.min.js",
         "./assets/js/Timeline.js",
-        "./assets/js/tutorial.js"
+        "./assets/js/tutorial.js",
+        "./assets/tooltips.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
