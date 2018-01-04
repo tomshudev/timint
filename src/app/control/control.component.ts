@@ -6,6 +6,7 @@ declare var toggleBrutoNetoText:any;
 declare var toggleZoomingText:any;
 declare var toggleView:any;
 declare var initControlPanel:any;
+declare var timelineLoadPromise:Promise<any>;
 
 @Component({
   selector: 'app-control',
@@ -32,14 +33,16 @@ export class ControlComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.timeline = getTimeline();
-    this.options = getOptions();
-    this.brutoNetoMode = this.brutoNetoEnum.NETO;
-    toggleBrutoNetoText(this.brutoNetoMode);
-    this.zoomingMode = this.zoomingEnum.ON;
-    toggleZoomingText(this.zoomingMode);
+    timelineLoadPromise.then(()=> {
+      this.timeline = getTimeline();
+      this.options = getOptions();
+      this.brutoNetoMode = this.brutoNetoEnum.NETO;
+      toggleBrutoNetoText(this.brutoNetoMode);
+      this.zoomingMode = this.zoomingEnum.ON;
+      toggleZoomingText(this.zoomingMode);
 
-    initControlPanel();
+      initControlPanel();
+    })
   }
 
   fitAllItems() {
@@ -96,8 +99,6 @@ export class ControlComponent implements OnInit {
   }
 
   toggleNetoBruto() {
-      var isNetoMode = this.brutoNetoMode === this.brutoNetoEnum.NETO;
-
       if (this.brutoNetoMode === this.brutoNetoEnum.NETO) {
         $('#toggleNetoBrutoIcon').addClass('ion-toggle-filled');
         $('#toggleNetoBrutoIcon').removeClass('ion-toggle');
@@ -111,6 +112,8 @@ export class ControlComponent implements OnInit {
         this.brutoNetoMode = this.brutoNetoEnum.NETO;
         toggleBrutoNetoText(this.brutoNetoMode);
       }
+
+      var isNetoMode = this.brutoNetoMode === this.brutoNetoEnum.NETO;
 
       toggleView(isNetoMode);
   }

@@ -1,9 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import {SelectModule} from 'ng-select';
-import {IOption} from 'ng-select';
+import {SelectModule, SelectComponent} from 'ng-select-bypass';
+import {IOption} from 'ng-select-bypass';
 declare var timeline:any;
 declare var vis:any;
+declare var timelineLoadPromise:Promise<any>;
 declare var $:any;
+declare var openDropdown:any;
 
 function log(a){console.log(a); return a;}
 
@@ -23,10 +25,13 @@ export class SearchComponent implements OnInit {
   }
   myOptions: Array<NetoOption> = [];
   ngOnInit() {
-    let items = timeline.itemSet.items
-    Object.keys(items).forEach(id => {
-      this.myOptions.push({value: id, label: items[id].content, start: timeline.itemsData._data[id].start, end: timeline.itemsData._data[id].end});
-    });
+    timelineLoadPromise.then(()=> {
+      let items = timeline.itemSet.items
+      Object.keys(items).forEach(id => {
+        this.myOptions.push({value: id, label: items[id].content, start: timeline.itemsData._data[id].start, end: timeline.itemsData._data[id].end});        
+      });
+      SelectComponent.prototype.getComponent().updateOptionListBypass(this.myOptions)
+    })
   }
   onSelected(option: IOption) {
     var netoOption = option as NetoOption
@@ -39,7 +44,7 @@ export class SearchComponent implements OnInit {
   onDeselected(option: IOption) {
       timeline.fit();
   }
-  
+
 }
 
 class NetoOption implements IOption{
