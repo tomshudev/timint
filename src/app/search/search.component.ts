@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectorRef, ApplicationRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {SelectModule, SelectComponent} from 'ng-select-bypass';
 import {IOption} from 'ng-select-bypass';
 declare var timeline:any;
 declare var vis:any;
 declare var timelineLoadPromise:Promise<any>;
 declare var $:any;
+declare var openDropdown:any;
 
 function log(a){console.log(a); return a;}
 
@@ -17,11 +18,10 @@ function log(a){console.log(a); return a;}
 
 export class SearchComponent implements OnInit {
   setSearching(bool){
-    this.ar.tick()
     this.cd.detectChanges();
     timeline.searching = bool
   }
-  constructor(private cd: ChangeDetectorRef, private ar:ApplicationRef) {
+  constructor(private cd: ChangeDetectorRef) {
   }
   myOptions: Array<NetoOption> = [];
   ngOnInit() {
@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
   onDeselected(option: IOption) {
       timeline.fit();
   }
-  
+
 }
 
 class NetoOption implements IOption{
