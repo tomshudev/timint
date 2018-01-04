@@ -4,6 +4,9 @@ var groups;
 var combinedItems;
 var items;
 var brutos;
+var heights;
+var customTimes;
+var isNeto = false;
 
 function getTimeline(){
   return timeline;
@@ -24,20 +27,59 @@ let timelineLoadPromise = new Promise((resolve, reject) => {
 })
 
 function toggleView(isNetoMode) {
+  isNeto = isNetoMode;
   if(isNetoMode) {
     timeline.setData({
       groups: groups,
       items: combinedItems
     });
+    addTechTimes()
   } else {
     timeline.setData({
       groups: null,
       items: items
     });
     timeline.setGroups(null);
+    removeTechTimes()
   }
-
   timeline.redraw();
+}
+
+function addTechTimes() {
+  brutos = brutos.sort((a,b)=>{return vis.moment(a.start).diff(b.start)})
+  for (let index = 0; index < brutos.length; index++) {
+    var bruto = brutos[index]
+    timeline.addCustomTime(bruto.addedToDB, index)
+  }
+  setTimeout(()=>{
+    var drags = $('.vis-custom-time').children()
+    drags.each((index, element)=>{
+      element.style.height = 0
+    })
+
+    customTimes = $('.vis-custom-time')
+    customTimes.css({"cursor": "default", "z-index": "10", "background-color": "#000000"})
+    updateCustomTimesOnRangeChange();
+  })
+}
+
+function removeTechTimes() {
+  for (let index=0; index < brutos.length; index++) {
+    timeline.removeCustomTime(index)
+  }
+}
+
+function updateCustomTimesOnRangeChange(){
+  var sumHeights = 0;
+  setTimeout(()=>{
+    heights = $('.vis-foreground').children().filter('.vis-group')
+    customTimes.each((index, element) => {
+      console.log(element)
+      element.style.height = heights[index].style.height;
+      element.style.top = sumHeights.toString() + "px";
+      sumHeights += parseInt(heights[index].style.height);
+    })
+  })
 }
 
 function move (percentage) {
@@ -144,6 +186,7 @@ function initTimeline(callback) {
 
   // Configuration for the Timeline
   options = {
+    showCurrentTime: false,
     order: customOrder,
     selectable: false,
     zoomMax: maxDate.diff(minDate,'ms'),
@@ -159,6 +202,7 @@ function initTimeline(callback) {
   options.max = vis.moment(maxDate).add(options.zoomMax / 2, 'ms')
   // Create a Timeline
   timeline = new vis.Timeline(container, items, options);
+
   timeline.on('rangechange',function(properties){
     closePopup()
     var start = vis.moment(properties.start)
@@ -166,6 +210,9 @@ function initTimeline(callback) {
     var diff = end.diff(start, 'ms')
     options.min = vis.moment(minDate).subtract(diff / 2, 'ms')
     options.max = vis.moment(maxDate).add(diff / 2, 'ms')
+    if(isNeto){
+      updateCustomTimesOnRangeChange();
+    }
     timeline.setOptions(options)
   })
 
