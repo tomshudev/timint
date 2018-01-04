@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 declare var jquery:any;
 declare var $:any;
 declare var runTutorial:any;
+declare var closePopup:any;
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,13 @@ export class AppComponent implements OnInit {
 
   isHomeScreen=false;
 
-  constructor(private router: Router, private cookiesService: CookieService) {}
+  constructor(private router: Router, private cookiesService: CookieService) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        closePopup();
+      }
+    })
+  }
 
   ngOnInit() {
     this.isHomeScreen = this.router.url === '/home' || this.router.url === '/';

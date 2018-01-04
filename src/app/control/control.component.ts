@@ -99,8 +99,6 @@ export class ControlComponent implements OnInit {
   }
 
   toggleNetoBruto() {
-      var isNetoMode = this.brutoNetoMode === this.brutoNetoEnum.NETO;
-
       if (this.brutoNetoMode === this.brutoNetoEnum.NETO) {
         $('#toggleNetoBrutoIcon').addClass('ion-toggle-filled');
         $('#toggleNetoBrutoIcon').removeClass('ion-toggle');
@@ -114,6 +112,8 @@ export class ControlComponent implements OnInit {
         this.brutoNetoMode = this.brutoNetoEnum.NETO;
         toggleBrutoNetoText(this.brutoNetoMode);
       }
+
+      var isNetoMode = this.brutoNetoMode === this.brutoNetoEnum.NETO;
 
       toggleView(isNetoMode);
   }

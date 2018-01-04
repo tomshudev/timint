@@ -6,7 +6,7 @@ var items;
 var brutos;
 var heights;
 var customTimes;
-var isNeto = false;
+var isNeto = true;
 
 function getTimeline(){
   return timeline;
@@ -28,7 +28,7 @@ let timelineLoadPromise = new Promise((resolve, reject) => {
 
 function toggleView(isNetoMode) {
   isNeto = isNetoMode;
-  if(isNetoMode) {
+  if(!isNetoMode) {
     timeline.setData({
       groups: groups,
       items: combinedItems
@@ -58,7 +58,7 @@ function addTechTimes() {
     })
 
     customTimes = $('.vis-custom-time')
-    customTimes.css({"cursor": "default", "z-index": "10", "background-color": "#000000"})
+    customTimes.css({"cursor": "default", "z-index": "2", "background-color": "#000000"})
     updateCustomTimesOnRangeChange();
   })
 }
@@ -74,7 +74,6 @@ function updateCustomTimesOnRangeChange(){
   setTimeout(()=>{
     heights = $('.vis-foreground').children().filter('.vis-group')
     customTimes.each((index, element) => {
-      console.log(element)
       element.style.height = heights[index].style.height;
       element.style.top = sumHeights.toString() + "px";
       sumHeights += parseInt(heights[index].style.height);
@@ -210,7 +209,7 @@ function initTimeline(callback) {
     var diff = end.diff(start, 'ms')
     options.min = vis.moment(minDate).subtract(diff / 2, 'ms')
     options.max = vis.moment(maxDate).add(diff / 2, 'ms')
-    if(isNeto){
+    if(!isNeto){
       updateCustomTimesOnRangeChange();
     }
     timeline.setOptions(options)
@@ -220,7 +219,7 @@ function initTimeline(callback) {
     // If the clicked area is an item
     if (properties.item) {
       var item;
-      if (tog)
+      if (isNeto)
         item = items.get(properties.item);
       else
         item = combinedItems.get(properties.item);

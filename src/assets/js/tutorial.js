@@ -12,6 +12,11 @@ var enjoyhint_script_data = [
       description:'You can start your research within a click'
     },
     {
+      selector:'#visualization',
+      event_type:'next',
+      description:'This is the timeline, you can drag, zoom, and more'
+    },
+    {
       selector:'#control-panel',
       event_type:'next',
       description:'You can control the timeline using the <b>control panel</b>'
@@ -42,9 +47,9 @@ var enjoyhint_script_data = [
       description:'<b>And most importantly</b>:<br>You can switch between <b>neto</b> to <b>bruto</b> mode'
     },
     {
-      selector:'#visualization',
+      selector:'#search-bar',
       event_type:'next',
-      description:'This is the timeline, you can drag, zoom, and more'
+      description:'This is the search bar.<br> You can click on it to see the options.<br>Another (and much cool) way is to press Ctrl+F on your keyboard.'
     }
   ];
   
