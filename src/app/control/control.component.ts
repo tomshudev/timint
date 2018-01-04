@@ -6,7 +6,7 @@ declare var toggleBrutoNetoText:any;
 declare var toggleZoomingText:any;
 declare var toggleView:any;
 declare var initControlPanel:any;
-declare var timelineLoadPromise:Promise<any>;
+declare var timelineLoadPromise:any;
 
 @Component({
   selector: 'app-control',
@@ -33,7 +33,7 @@ export class ControlComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    timelineLoadPromise.then(()=> {
+    timelineLoadPromise.finally(()=> {
       this.timeline = getTimeline();
       this.options = getOptions();
       this.brutoNetoMode = this.brutoNetoEnum.NETO;

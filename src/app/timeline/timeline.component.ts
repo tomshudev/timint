@@ -7,7 +7,7 @@ declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
 declare var timeline:any;
-declare var timelineLoadPromise:Promise<any>;
+declare var timelineLoadPromise:any;
 
 @Component({
   selector: 'app-timeline',
@@ -21,7 +21,7 @@ export class TimelineComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    timelineLoadPromise.then(()=>initTimeline(() => {
+    timelineLoadPromise.finally(()=>initTimeline(() => {
       timeline.searching = false
     }))
 
