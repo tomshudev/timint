@@ -7,6 +7,7 @@ declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
 declare var timeline:any;
+declare var timelineLoadPromise:Promise<any>;
 
 @Component({
   selector: 'app-timeline',
@@ -20,9 +21,9 @@ export class TimelineComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    initTimeline(() => {
+    timelineLoadPromise.then(()=>initTimeline(() => {
       timeline.searching = false
-    });
+    }))
 
     function KeyPress(e) {
       var evtobj = window.event? event : e;
