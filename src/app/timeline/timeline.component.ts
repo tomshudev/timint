@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {SelectComponent} from 'ng-select-bypass';
 import { fadeInAnimation } from '../_animations/index';
 
+declare var $:any;
 declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
@@ -21,6 +23,18 @@ export class TimelineComponent implements OnInit {
     initTimeline(() => {
       timeline.searching = false
     });
+
+    function KeyPress(e) {
+      var evtobj = window.event? event : e;
+
+      if (evtobj.keyCode == 70 && evtobj.ctrlKey) {
+        SelectComponent.prototype.openDropdownBypass();
+        // Preventing the original action
+        e.preventDefault();
+      }
+    }
+    
+    document.onkeydown = KeyPress;
   }
   keysListener($event) {
     if (timeline.searching)
@@ -38,6 +52,6 @@ export class TimelineComponent implements OnInit {
     }
     if ($event.code == "ArrowDown"){
       timeline.zoomOut (0.2, {animation: false})
-   }
+    }
   }
 }
