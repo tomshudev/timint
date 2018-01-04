@@ -10,7 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SearchComponent } from './search/search.component';
-import {SelectModule} from 'ng-select';
+import {SelectModule} from 'ng-select-bypass';
 import { ControlComponent } from './control/control.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 

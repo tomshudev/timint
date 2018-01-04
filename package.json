@@ -23,7 +23,7 @@
     "@angular/router": "^5.0.0",
     "core-js": "^2.4.1",
     "enjoyhint": "^1.0.1",
-    "ng-select": "^1.0.0-rc.3",
+    "ng-select-bypass": "^1.0.4",
     "ngx-cookie-service": "^1.0.9",
     "rxjs": "^5.5.2",
     "vis": "^4.21.0",

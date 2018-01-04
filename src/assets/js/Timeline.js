@@ -168,26 +168,6 @@ function initTimeline(callback) {
     options.max = vis.moment(maxDate).add(diff / 2, 'ms')
     timeline.setOptions(options)
   })
-  // var tog = 1
-  // toggleView.onclick = function(){
-  //   if (tog){
-  //     timeline.setData({
-  //       groups: groups,
-  //       items: combinedItems
-  //     })
-  //   }
-  //   else {
-  //     timeline.setData({
-  //       groups: null,
-  //       items: items
-  //     })
-  //     timeline.setGroups(null)
-  //   }
-  //   timeline.redraw()
-  //   tog = !tog
-  // }
-
-  
 
   function openPopup(properties) {
     // If the clicked area is an item
