@@ -122,7 +122,7 @@ function initTimeline(callback) {
     }
   }
 
-  var colors = ['#0074D9','#001f3f','#FF851B','#85144b','#e5e5e5']
+  var colors = ['#4CB5F5','#B7B8B6','#34675C','#B3C100','#375E97','#FB6542','#FFBB00','#3F681C','#BCBABE','#A1D6E2','#1995AD']
 
   // Create a DataSet (allows two way data-binding)
   items = new vis.DataSet()
