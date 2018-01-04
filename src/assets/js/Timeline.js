@@ -3,6 +3,7 @@ var options;
 var groups;
 var combinedItems;
 var items;
+var netoMode = true;
 
 function getTimeline(){
   return timeline;
@@ -26,6 +27,7 @@ function toggleView(isNetoMode) {
     timeline.setGroups(null);
   }
 
+  netoMode = isNetoMode;
   timeline.redraw();
 }
 
@@ -164,7 +166,7 @@ function initTimeline(callback) {
     // If the clicked area is an item
     if (properties.item) {
       var item;
-      if (tog)
+      if (netoMode)
         item = items.get(properties.item);
       else
         item = combinedItems.get(properties.item);
