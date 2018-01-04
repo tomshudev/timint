@@ -13,6 +13,7 @@ import { SearchComponent } from './search/search.component';
 import {SelectModule} from 'ng-select-bypass';
 import { ControlComponent } from './control/control.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { TracksComponent } from './tracks/tracks.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     TimelineComponent,
     ControlComponent,
     TooltipComponent,
-    SearchComponent
+    SearchComponent,
+    TracksComponent
   ],
   imports: [
     BrowserModule,

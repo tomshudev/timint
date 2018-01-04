@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectComponent} from 'ng-select-bypass';
 import { fadeInAnimation } from '../_animations/index';
+import { ActivatedRoute } from '@angular/router';
 
 declare var $:any;
 declare var initTimeline:any;
@@ -18,7 +19,7 @@ declare var timelineLoadPromise:Promise<any>;
 })
 export class TimelineComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     timelineLoadPromise.then(()=>initTimeline(() => {
