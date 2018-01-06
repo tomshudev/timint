@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TracksService } from '../_services/tracks.service';
 
 @Component({
   selector: 'tracks',
@@ -7,14 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TracksComponent implements OnInit {
 
-  tracks = [
-    { id: 0, name: 'Liran\'s day', start: '04/01/2017 3:24:35' },
-    { id: 1, name: 'Dekel\'s day', start: '01/01/2017 2:13:35' },
-    { id: 2, name: 'Tom\'s day', start: '04/01/2017 3:24:35' },
-    { id: 3, name: 'Hen Shukerrrrrrrrrrrrrrrrrrrrr\'s day', start: '01/01/2017 2:13:35' }
-  ]
+  tracks = null
 
-  constructor() { }
+  constructor(private tracksService: TracksService) {
+    tracksService.getTracks(tracks => this.tracks = tracks);
+  }
 
   ngOnInit() {
   }

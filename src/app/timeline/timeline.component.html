@@ -1,5 +1,7 @@
-<div>
+<div *ngIf="track">
+  <h1>You're watching now the data of the track: {{track.name}}</h1>
   <app-control></app-control>
-  <div id="visualization"></div>
   <div (window:keydown)="keysListener($event)"></div>
 </div>
+
+<div id="visualization"></div>
