@@ -21,6 +21,7 @@
       "styles": [
         "styles.css",
         "../node_modules/vis/dist/vis.css",
+        "../node_modules/jquery-contextmenu/dist/jquery.contextMenu.css",
         "./assets/css/navbar.css",
         "./assets/css/jquery.enjoyhint.css",
         "./assets/css/popup.css",
@@ -28,6 +29,8 @@
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
+        "../node_modules/jquery-contextmenu/dist/jquery.ui.position.js",
+        "../node_modules/jquery-contextmenu/dist/jquery.contextMenu.js",
         "./assets/js/enjoyhint.min.js",
         "./assets/js/jquery.enjoyhint.js",
         "./assets/js/kinetic.min.js",

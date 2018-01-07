@@ -7,19 +7,16 @@
   </div>
 
   <div class="table-wrapper">
-    <table class="table table-tracks">
-        <tr>
-          <th>#</th>
-          <th>Track name</th>
-          <th>Track start time</th>
-          <th>Watch</th>
-        </tr>
-    </table>
-
     <div class="table-scroll">
       <table class="table table-tracks">
+          <tr class="table-header">
+              <th>#</th>
+              <th>Track name</th>
+              <th>Track start time</th>
+              <th>Watch</th>
+            </tr>
         <tr *ngFor="let track of tracks" class="track track-row">
-          <td>{{track.id}}</td>
+          <td class="track-id">{{track.id}}</td>
           <td>{{track.name}}</td>
           <td>{{track.start}}</td>
           <td><a routerLink="/timeline/{{track.id}}" class="btn btn-watch">Watch</a></td>
