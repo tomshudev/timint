@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TracksService } from '../_services/tracks.service';
 
+declare var $:any;
+
 @Component({
   selector: 'tracks',
   templateUrl: './tracks.component.html',
@@ -11,7 +13,9 @@ export class TracksComponent implements OnInit {
   tracks = null
 
   constructor(private tracksService: TracksService) {
-    tracksService.getTracks(tracks => this.tracks = tracks);
+    tracksService.getTracks(tracks => {
+      this.tracks = tracks;
+    });
   }
 
   ngOnInit() {

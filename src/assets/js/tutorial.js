@@ -12,7 +12,7 @@ var enjoyhint_script_data = [
       description:'You can start your research within a click'
     },
     {
-      selector:'#tracks-div',
+      selector:'#tracks-headings',
       event_type:'next',
       description:'These are all the tracks you can see'
     },

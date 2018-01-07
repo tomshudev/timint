@@ -17,6 +17,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { TracksComponent } from './tracks/tracks.component';
 
 import { TracksService } from './_services/tracks.service';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TracksService } from './_services/tracks.service';
     ControlComponent,
     TooltipComponent,
     SearchComponent,
-    TracksComponent
+    TracksComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

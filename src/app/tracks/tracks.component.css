@@ -8,12 +8,28 @@
     margin-bottom: 30px;
 }
 
-.table {
-    border-collapse: collapse;
-    margin: 20px auto;
+.table-wrapper {
+    position: relative;
+    margin-bottom: 20px;
     width: 60%;
+    margin: 20px auto;
+}
+
+.table-scroll {
+    height: 60vh;
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
     line-height: 40px;
     cursor: default;
+}
+
+.table.table-scroll {
+    height: 80vh;
+    overflow: auto;
 }
 
 .table th {

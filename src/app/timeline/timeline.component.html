@@ -1,4 +1,6 @@
-<div *ngIf="track">
+<loader *ngIf="!isLoaded"></loader>
+
+<div *ngIf="isLoaded">
   <h1>You're watching now the data of the track: {{track.name}}</h1>
   <app-control></app-control>
   <div (window:keydown)="keysListener($event)"></div>
