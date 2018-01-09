@@ -1,4 +1,5 @@
 var enjoyhint_instance = new EnjoyHint({});
+var isRunningTutorial = false;
 
 var enjoyhint_script_data = [
     {
@@ -26,6 +27,9 @@ var enjoyhint_script_data = [
       event:'click',
       description:'Press in order to watch the timeline for this event'
     },
+  ];
+
+var enjoyhint_script_data_after_load = [
     {
       selector:'#visualization',
       event_type:'next',
@@ -68,11 +72,22 @@ var enjoyhint_script_data = [
     }
   ];
   
-  
+function runTutorial() {
+  isRunningTutorial = true;
+
   //set script config
   enjoyhint_instance.setScript(enjoyhint_script_data);
 
-function runTutorial() {
   //run Enjoyhint script
   enjoyhint_instance.runScript();
+}
+
+function runTutorialAfterLoad() {
+  if (isRunningTutorial) {
+    //set script config
+    enjoyhint_instance.setScript(enjoyhint_script_data_after_load);
+
+    //run Enjoyhint script
+    enjoyhint_instance.runScript();
+  }
 }

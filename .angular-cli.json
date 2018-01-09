@@ -25,7 +25,8 @@
         "./assets/css/navbar.css",
         "./assets/css/jquery.enjoyhint.css",
         "./assets/css/popup.css",
-        "./assets/css/timeline.css"
+        "./assets/css/timeline.css",
+        "./assets/css/modal.css"
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
@@ -36,7 +37,8 @@
         "./assets/js/kinetic.min.js",
         "./assets/js/Timeline.js",
         "./assets/js/tutorial.js",
-        "./assets/tooltips.js"
+        "./assets/js/tooltips.js",
+        "./assets/js/modal.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

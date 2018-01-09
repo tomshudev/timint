@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TracksService } from '../_services/tracks.service';
 
 declare var $:any;
+declare var openModal:any;
 
 @Component({
   selector: 'tracks',
@@ -19,9 +20,13 @@ export class TracksComponent implements OnInit {
       $(function() {
         $.contextMenu({
           selector: '.track-row',
-          animation: {duration: 500, show: 'slideDown'},
           callback: function(key, options) {
             console.log('The track ' + (this.children()[0].innerText) + ' will be removed');
+            tracksService.getTrackById(this.children()[0].innerText, (track) => {
+              openModal(track.name);
+
+              tracks.splice(tracks.indexOf(track), 1);
+            })
           },
           items: {
             "edit": {name: 'Edit', icon: 'edit'},

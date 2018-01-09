@@ -9,6 +9,7 @@ declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
 declare var timeline:any;
+declare var runTutorialAfterLoad:any;
 
 @Component({
   selector: 'app-timeline',
@@ -31,6 +32,7 @@ export class TimelineComponent implements OnInit {
         this.track = track;
 
         setTimeout(() =>{
+          runTutorialAfterLoad();
           this.isLoaded = true  
         }, 400);
       });

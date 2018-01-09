@@ -18,6 +18,7 @@ import { TracksComponent } from './tracks/tracks.component';
 
 import { TracksService } from './_services/tracks.service';
 import { LoaderComponent } from './loader/loader.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoaderComponent } from './loader/loader.component';
     TooltipComponent,
     SearchComponent,
     TracksComponent,
-    LoaderComponent
+    LoaderComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
