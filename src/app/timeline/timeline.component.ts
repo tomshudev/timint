@@ -9,7 +9,6 @@ declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
 declare var timeline:any;
-declare var timelineLoadPromise:Promise<any>;
 
 @Component({
   selector: 'app-timeline',
