@@ -18,3 +18,33 @@ body {
     transform: translateY(-100vh);
     transition: .5s ease-in-out all;
 }
+
+a {
+    cursor: pointer;
+}
+
+.btn {
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 100px;
+    display: inline-block;
+    padding: 15px 40px;
+    position: relative;
+    transition: all .2s;
+}
+
+.btn:link,
+.btn:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

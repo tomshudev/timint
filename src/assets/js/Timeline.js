@@ -3,6 +3,7 @@ var options;
 var groups;
 var combinedItems;
 var items;
+var tracks;
 var brutos;
 var heights;
 var customTimes;
@@ -15,16 +16,6 @@ function getTimeline(){
 function getOptions(){
   return options;
 }
-
-let timelineLoadPromise = new Promise((resolve, reject) => {
-
-  $.ajax({
-    url: "http://localhost:3000",
-  }).done((data) => {
-    brutos = data
-    resolve()
-  })
-})
 
 function toggleView(isNetoMode) {
   isNeto = isNetoMode;
@@ -96,10 +87,11 @@ function closePopup() {
   popup.style.opacity = "0";
   popup.style.visibility = "hidden";
 }
-function initTimeline(callback) {
+function initTimeline(brutosData, callback) {
     // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
   var toggleView = document.getElementById('toggleView');
+  brutos = brutosData;
 
   function log (a){console.log(a);return a}
   function hexToRgb(hex) {
@@ -122,7 +114,7 @@ function initTimeline(callback) {
     }
   }
 
-  var colors = ['#4CB5F5','#B7B8B6','#34675C','#B3C100','#375E97','#FB6542','#FFBB00','#3F681C','#BCBABE','#A1D6E2','#1995AD']
+  var colors = ['#4CB5F5','#34675C','#B3C100','#375E97','#FB6542','#FFBB00','#BCBABE','#A1D6E2','#1995AD','#8E2344']
 
   // Create a DataSet (allows two way data-binding)
   items = new vis.DataSet()

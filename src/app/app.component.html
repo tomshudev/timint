@@ -6,11 +6,12 @@
             <a routerLink="/" class="logo">timint</a>
             <ul class="nav nav-navbar">
                 <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
-                <li routerLinkActive="active"><a routerLink="/timeline">Timeline</a></li>
+                <li routerLinkActive="active"><a routerLink="/tracks">Tracks</a></li>
             </ul>
 
             <ul class="nav nav-navbar nav-right">
-                <li routerLinkActive="active" class="sign"><a routerLink="/" (click)="deleteCookies()">Sign in</a></li>
+                <li routerLinkActive="active"><a (click)="runTutorial()">Help</a></li>
+                <li routerLinkActive="active" class="sign"><a routerLink="/" >Sign in</a></li>
             </ul>
         </div>
     </nav>
