@@ -30,6 +30,7 @@
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
+        "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/jquery-contextmenu/dist/jquery.ui.position.js",
         "../node_modules/jquery-contextmenu/dist/jquery.contextMenu.js",
         "./assets/js/enjoyhint.min.js",
