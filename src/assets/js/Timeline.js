@@ -86,6 +86,7 @@ function closePopup() {
   var popup = document.getElementById("popup");
   popup.style.opacity = "0";
   popup.style.visibility = "hidden";
+  $('.overlay').css('position', 'fixed');
 }
 function initTimeline(brutosData, callback) {
     // DOM element where the Timeline will be attached
@@ -114,7 +115,7 @@ function initTimeline(brutosData, callback) {
     }
   }
 
-  var colors = ['#4CB5F5','#34675C','#B3C100','#375E97','#FB6542','#FFBB00','#BCBABE','#A1D6E2','#1995AD','#8E2344']
+  var colors = ['#4CB5F5','#34675C','#B3C100','#375E97','#BCBABE','#FB6542','#FFBB00','#A1D6E2','#1995AD','#8E2344']
 
   // Create a DataSet (allows two way data-binding)
   items = new vis.DataSet()
@@ -216,12 +217,16 @@ function initTimeline(brutosData, callback) {
       else
         item = combinedItems.get(properties.item);
 
+      $('.overlay').css('position', 'absolute');
+
       // Setting the popup heading
       document.getElementsByClassName('popup-heading')[0].textContent = item.content;
 
       // Setting the popup content
       var content = document.getElementsByClassName('popup-content')[0];
-      content.innerHTML="<h2>Description: </h2> " + item.description;
+      var contentString = "<h3>Start: </h3>" + item.start + "<br><h3>End: </h3>" + item.end + "<br><h3>Description: </h3>" + item.description;
+
+      content.innerHTML=contentString;
 
       // Setting the position of the popup in the needed point and displaying it
       var element = document.getElementById('popup-container');

@@ -1,10 +1,9 @@
 .overlay {
-    position: absolute;
+    position: fixed;
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
     z-index: 3;
-
     min-width: 60px;
     min-height: 40px;
 }
@@ -21,6 +20,7 @@
     margin-top: 0;
     color: #fff;
     font-family: Tahoma, Arial, sans-serif;
+    display: inline;
 }
 
 .popup .close {
@@ -66,4 +66,12 @@
     border-bottom-color: #333;
     border-width: 6px;
     margin-left: -6px;
+}
+
+.popup h3 {
+  margin-top: 0;
+  color: #fff;
+  font-family: Tahoma, Arial, sans-serif;
+  display: inline;
+  font-size: large;
 }
