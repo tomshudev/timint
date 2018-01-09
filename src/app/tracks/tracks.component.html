@@ -1,0 +1,19 @@
+<div *ngIf="tracks" id="tracks-div">
+  <h1 class="tracks-headline">Tracks</h1>
+  <h5 class="tracks-headline-sub">Press watch in order to watch the timeline for the selected event.</h5>
+
+  <table class="table table-tracks">
+    <tr>
+      <th>#</th>
+      <th>Track name</th>
+      <th>Track start time</th>
+      <th>Watch</th>
+    </tr>
+    <tr *ngFor="let track of tracks" class="track">
+      <td>{{track.id}}</td>
+      <td>{{track.name}}</td>
+      <td>{{track.start}}</td>
+      <td><a routerLink="/timeline/{{track.id}}" class="btn btn-watch">Watch</a></td>
+    </tr>
+  </table>
+</div>

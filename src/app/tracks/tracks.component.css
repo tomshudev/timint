@@ -1,0 +1,60 @@
+.tracks-headline {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tracks-headline-sub {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 60%;
+    line-height: 40px;
+    cursor: default;
+}
+
+.table th {
+    font-style: italic;
+}
+
+.track:hover {
+    background-color: #eee;
+}
+
+.btn-watch {
+    line-height: 30px;
+    padding: 0px 20px;
+    background-color: #2962ff;    
+}
+
+.btn-watch:hover {
+    transform: translateY(0);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-watch:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-watch::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    background-color: #2962ff;
+}
+
+.btn-watch:hover::after {
+    transform: scaleX(1.2) scaleY(1.3);
+    opacity: 0;
+}

@@ -27,32 +27,11 @@
     letter-spacing: 20px;
 }
 
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 100px;
-    display: inline-block;
-    padding: 15px 40px;
-    position: relative;
-    transition: all .2s;
-}
-
 .btn-gray {
     background-color: #333;
     color: #fff;
 
     animation: moveInBottom 1s ease-out;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes moveInTop {
