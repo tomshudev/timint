@@ -12,6 +12,21 @@ var enjoyhint_script_data = [
       description:'You can start your research within a click'
     },
     {
+      selector:'#tracks-div',
+      event_type:'next',
+      description:'These are all the tracks you can see'
+    },
+    {
+      selector:'.track',
+      event_type:'next',
+      description:'This is the first event for you, you can see it\'s details and watch it\'s timeline'
+    },
+    {
+      selector:'.btn-watch',
+      event:'click',
+      description:'Press in order to watch the timeline for this event'
+    },
+    {
       selector:'#visualization',
       event_type:'next',
       description:'This is the timeline, you can drag, zoom, and more'

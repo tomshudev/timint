@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,7 +14,9 @@ import { SearchComponent } from './search/search.component';
 import {SelectModule} from 'ng-select-bypass';
 import { ControlComponent } from './control/control.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { TracksComponent } from './tracks/tracks.component';
 
+import { TracksService } from './_services/tracks.service';
 
 @NgModule({
   declarations: [
@@ -23,17 +26,20 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     TimelineComponent,
     ControlComponent,
     TooltipComponent,
-    SearchComponent
+    SearchComponent,
+    TracksComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     SelectModule
   ],
   providers: [
-    CookieService
+    CookieService,
+    TracksService
   ],
   bootstrap: [AppComponent]
 })

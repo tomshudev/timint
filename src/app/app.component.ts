@@ -52,4 +52,9 @@ export class AppComponent implements OnInit {
   deleteCookies() :void {
     this.cookiesService.deleteAll();
   }
+
+  runTutorial():void {
+    this.router.navigate(['/']);
+    runTutorial();
+  }
 }
