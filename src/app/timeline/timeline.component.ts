@@ -9,6 +9,7 @@ declare var initTimeline:any;
 declare var closePopup:any;
 declare var move:any;
 declare var timeline:any;
+declare var runTutorialAfterLoad:any;
 
 @Component({
   selector: 'app-timeline',
@@ -20,13 +21,21 @@ declare var timeline:any;
 export class TimelineComponent implements OnInit {
 
   track = null
+  isLoaded = false
 
   constructor(private route: ActivatedRoute, private tracksService: TracksService) {}
 
   ngOnInit() {
     this.tracksService.getTrackById(this.route.snapshot.paramMap.get('id'),(track) => {
-      this.track = track;
-      initTimeline(this.track.brutos, () => { timeline.searching = false });
+      initTimeline(track.brutos, () => { 
+        timeline.searching = false;
+        this.track = track;
+
+        setTimeout(() =>{
+          runTutorialAfterLoad();
+          this.isLoaded = true  
+        }, 400);
+      });
     });
 
     function KeyPress(e) {

@@ -21,19 +21,25 @@
       "styles": [
         "styles.css",
         "../node_modules/vis/dist/vis.css",
+        "../node_modules/jquery-contextmenu/dist/jquery.contextMenu.css",
         "./assets/css/navbar.css",
         "./assets/css/jquery.enjoyhint.css",
         "./assets/css/popup.css",
-        "./assets/css/timeline.css"
+        "./assets/css/timeline.css",
+        "./assets/css/modal.css"
       ],
       "scripts": [
         "../node_modules/vis/dist/vis.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/jquery-contextmenu/dist/jquery.ui.position.js",
+        "../node_modules/jquery-contextmenu/dist/jquery.contextMenu.js",
         "./assets/js/enjoyhint.min.js",
         "./assets/js/jquery.enjoyhint.js",
         "./assets/js/kinetic.min.js",
         "./assets/js/Timeline.js",
         "./assets/js/tutorial.js",
-        "./assets/tooltips.js"
+        "./assets/js/tooltips.js",
+        "./assets/js/modal.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

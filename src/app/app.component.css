@@ -15,9 +15,8 @@
 .copyright {
     color: #777;
     font-size: 12px;
-
     bottom: 0;
     right: 0;
-    position: fixed;
     padding: 10px;
+    position: fixed;
 }
